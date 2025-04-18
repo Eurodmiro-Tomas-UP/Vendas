@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encomendas - V-Cakes</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      padding: 2rem;
+      background-color: #fef6f9;
+      color: #333;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #b76e79;
+    }
+
+    .produto {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+
+    .produto img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .produto button {
+      background-color: #b76e79;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input, form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    form button {
+      background-color: #b76e79;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .categoria {
+      margin-top: 2rem;
+    }
+
+    #lista-itens {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    #lista-itens ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    #lista-itens li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+	.remove-btn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Faça a sua Encomenda</h1>
+
+  <div class="categoria">
+    <h2>Bolos</h2>
+    <div class="produto">
+      <img src="img/bolo_chocolate.jpg" alt="Bolo de Chocolate">
+      <div>
+        <h3>Bolo de Chocolate</h3>
+        <p>Preço: 7.000 KZ</p>
+        <button onclick="adicionarEncomenda('Bolo de Chocolate - 7.000 KZ',7000)">Adicionar</button>
+      </div>
+    </div>
+    <div class="produto">
+      <img src="img/bolo_frutas.jpg" alt="Bolo de Frutas">
+      <div>
+        <h3>Bolo de Frutas</h3>
+        <p>Preço: 6.500 KZ</p>
+        <button onclick="adicionarEncomenda('Bolo de Frutas - 6.500 KZ',6500)">Adicionar</button>
+      </div>
+    </div>
+  </div>
+<div class="produto">
+      <img src="img/bolo_marmore.webp" alt="Bolo de Chocolate">
+      <div>
+        <h3>Bolo Mármore</h3>
+        <p>Preço: 7.000 KZ</p>
+        <button onclick="adicionarEncomenda('Bolo de Chocolate - 7.000 KZ',7000)">Adicionar</button>
+      </div>
+    </div>
+
+<div class="categoria">
+    <h2>Salgados</h2>
+    <div class="produto">
+      <img src="img/rissois.jpg" alt="Rissois">
+      <div>
+        <h3>Rissois</h3>
+	<p>12 Unidades de Rissois Composta por Camarão</p>
+        <p>Preço: 7.000 KZ</p>
+        <button onclick="adicionarEncomenda('12 Un - Rissois - 7.000 KZ',7000)">Adicionar</button>
+      </div>
+    </div>
+    <div class="produto">
+      <img src="img/cochinha.jpg" alt="Cochinhas">
+      <div>
+        <h3>Cochinhas</h3>
+        <p>12 Unidades de Cochinhas Composta por Frango,Milho</p>
+	<p>Preço: 6.500 KZ</p>
+        <button onclick="adicionarEncomenda('12 Un - Cochinhas - 6.500 KZ',6500)">Adicionar</button>
+      </div>
+    </div>
+  </div>
+<div class="produto">
+      <img src="img/massa_tenra.jpg" alt="Massa Tenra">
+      <div>
+        <h3>Massa Tenra</h3>
+	 <p>12 Unidades de Massa Tenra Composta por Carne</p>
+        <p>Preço: 7.000 KZ</p>
+        <button onclick="adicionarEncomenda('12 Un - Massa Tenra - 7.000 KZ',7000)">Adicionar</button>
+      </div>
+    </div>
+
+  <div class="categoria">
+    <h2>Comidas</h2>
+    <div class="produto">
+      <img src="img/funge.jfif" alt="Funge Com Carne Seca">
+      <div>
+        <h3>Funge Com Carne Seca</h3>
+        <p>Preço: 3.000 KZ</p>
+        <button onclick="adicionarEncomenda('Funge Com Carne Seca- 3.000 KZ',3000)">Adicionar</button>
+      </div>
+    </div>
+    <div class="produto">
+      <img src="img/arroz_de_pato.avif" alt="Arroz de Pato">
+      <div>
+        <h3>Arroz de Pato</h3>
+        <p>Preço: 1.800 KZ</p>
+        <button onclick="adicionarEncomenda('Arroz de Pato - 1.800 KZ',1800)">Adicionar</button>
+      </div>
+    </div>
+ <div class="produto">
+      <img src="img/bacalhau.webp" alt="Bacalhau Com Natas">
+      <div>
+        <h3>Bacalhau Com Natas</h3>
+        <p>Preço: 1.800 KZ</p>
+        <button onclick="adicionarEncomenda('Bacalhau Com Natas - 1.800 KZ',1800)">Adicionar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="lista-itens">
+    <h2>Itens Selecionados</h2>
+    <ul id="itens"></ul>
+<div id="total">Total: 0 KZ</div>
+  </div>
+
+  <form id="formulario">
+    <h2>Seus Dados</h2>
+    <input type="text" id="nome" placeholder="Seu nome" required>
+    <input type="tel" id="telefone" placeholder="Seu número de telefone" required>
+    <textarea id="morada" rows="3" placeholder="Sua morada" required></textarea>
+    <input type="hidden" id="listaEncomenda">
+    <button type="submit">Solicitar Encomenda</button>
+  </form>
+
+  <script>
+    const lista = [];
+    const ul = document.getElementById('itens');
+    const totalDisplay = document.getElementById('total');
+    let total = 0;
+
+    function adicionarEncomenda(item, preco) {
+      lista.push({ nome: item, preco });
+      atualizarLista();
+    }
+
+    function removerEncomenda(index) {
+      lista.splice(index, 1);
+      atualizarLista();
+    }
+
+    function atualizarLista() {
+      ul.innerHTML = '';
+      total = 0;
+      lista.forEach((item, index) => {
+        total += item.preco;
+        const li = document.createElement('li');
+        li.innerHTML = `${item.nome} <button class="remove-btn" onclick="removerEncomenda(${index})">Remover</button>`;
+        ul.appendChild(li);
+      });
+      totalDisplay.textContent = `Total: ${total.toLocaleString()} KZ`;
+      document.getElementById('listaEncomenda').value = lista.map(i => i.nome).join(', ');
+    }
+
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const morada = document.getElementById('morada').value;
+
+      const mensagem =
+        `Olá! Gostaria de fazer a seguinte encomenda:\n\n` +
+        lista.map((item, i) => `${i + 1}. ${item.nome}`).join('\n') +
+        `\n\nTotal: ${total.toLocaleString()} KZ` +
+        `\n\nNome: ${nome}\nTelefone: ${telefone}\nMorada: ${morada}`;
+
+      const url = `https://wa.me/244928041917?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+// Redireciona para a página inicial após 2 segundos
+      setTimeout(() => {
+        window.location.href = 'index.html'; // Mude o caminho se necessário
+      }, 2000);
+    });
+  </script>
+</body>
+
+</html>
